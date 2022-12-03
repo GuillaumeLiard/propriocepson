@@ -1,6 +1,6 @@
+import { start, stop } from './modules'
+
 export default function GenerateSound() {
-    const start = () => alert('start')
-    const stop = () => alert('stop')
     return (
         <section>
             <div className="flex flex-col items-center px-5 py-8 mx-auto max-w-7xl sm:px-6 lg:px-8">
