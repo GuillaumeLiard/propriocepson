@@ -33,10 +33,7 @@ export default class SingletonAudio {
             value: HIGH_FREQUENCY,
             duration: PERIOD / 2,
             onUpdate: () => {
-                console.log('frequency.value', frequency.value)
-                // this.oscillatorNode.setPeriodicWave
-                this.oscillatorNode.frequency.setValueAtTime(frequency.value, this.context.currentTime); // value in hertz
-
+                this.setFrequency(frequency.value)
             }
         })
         timeline.add(up)
@@ -48,6 +45,10 @@ export default class SingletonAudio {
         }
 
         return SingletonAudio.instance;
+    }
+
+    setFrequency(frequencyInHertz: number) {
+        this.oscillatorNode.frequency.setValueAtTime(frequencyInHertz, this.context.currentTime); // value in hertz
     }
 
     start() {
