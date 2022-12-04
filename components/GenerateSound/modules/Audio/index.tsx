@@ -1,10 +1,11 @@
-const HIGH_VOLUME = 0.1
+const HIGH_VOLUME = 0.2
 const ZERO_VOLUME = 0
-const LOW_FREQUENCY = 100
+const LOW_FREQUENCY = 220
 const HIGH_FREQUENCY = 440
 const PERIOD = 10
 
 import gsap from 'gsap'
+// https://greensock.com/docs/v3/Eases
 
 export default class SingletonAudio {
     private static instance: SingletonAudio;
@@ -32,6 +33,7 @@ export default class SingletonAudio {
         const up = gsap.to(frequency, {
             value: HIGH_FREQUENCY,
             duration: PERIOD / 2,
+            ease: 'power1.inOut',
             onUpdate: () => {
                 this.setFrequency(frequency.value)
             }
