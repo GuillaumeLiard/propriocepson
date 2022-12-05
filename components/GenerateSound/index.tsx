@@ -1,5 +1,5 @@
 import { start, stop } from './modules'
-const VERSION = 2
+const VERSION = 3
 export default function GenerateSound() {
 
     return (
