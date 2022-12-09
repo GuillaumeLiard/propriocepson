@@ -7,13 +7,12 @@ const PERIOD = 10
 import gsap from 'gsap'
 // https://greensock.com/docs/v3/Eases
 
-export default class SingletonAudio {
-    private static instance: SingletonAudio;
+export default class Audio {
     gainNode: GainNode
     oscillatorNode: OscillatorNode
     context: AudioContext
 
-    private constructor() {
+    constructor() {
         this.context = new AudioContext()
         this.oscillatorNode = this.context.createOscillator()
         this.configOscillator()
@@ -39,14 +38,6 @@ export default class SingletonAudio {
             }
         })
         timeline.add(up)
-    }
-
-    public static getInstance(): SingletonAudio {
-        if (!SingletonAudio.instance) {
-            SingletonAudio.instance = new SingletonAudio();
-        }
-
-        return SingletonAudio.instance;
     }
 
     setFrequency(frequencyInHertz: number) {

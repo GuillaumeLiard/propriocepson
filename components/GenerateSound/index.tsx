@@ -1,4 +1,4 @@
-import { start, stop } from './modules'
+import { start, stop } from './controller'
 const VERSION = 3
 export default function GenerateSound() {
 
