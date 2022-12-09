@@ -1,5 +1,4 @@
-const HIGH_VOLUME = 0.2
-const ZERO_VOLUME = 0
+
 const LOW_FREQUENCY = 220
 const HIGH_FREQUENCY = 440
 const PERIOD = 10
@@ -8,21 +7,25 @@ import gsap from 'gsap'
 // https://greensock.com/docs/v3/Eases
 
 export default class Audio {
-    gainNode: GainNode
+    gain: any
     context: AudioContext
 
-    constructor(context: AudioContext, oscillator: any) {
+    constructor(context: AudioContext, gain: any, oscillator: any) {
         this.context = context
-        this.gainNode = this.context.createGain()
+        this.gain = gain
+
+        const gainNode = gain.getNode()
         const oscillatorNode = oscillator.getNode()
-        oscillatorNode.connect(this.gainNode)
-        this.gainNode.connect(this.context.destination)
+
+        oscillatorNode.connect(gainNode)
+        gainNode.connect(this.context.destination)
     }
 
     start() {
-        this.gainNode.gain.setValueAtTime(HIGH_VOLUME, this.context.currentTime)
+        this.gain.setVolumeToMax()
     }
+
     stop() {
-        this.gainNode.gain.setValueAtTime(ZERO_VOLUME, this.context.currentTime)
+        this.gain.setVolumeToZero()
     }
 }
