@@ -9,39 +9,14 @@ import gsap from 'gsap'
 
 export default class Audio {
     gainNode: GainNode
-    oscillatorNode: OscillatorNode
     context: AudioContext
 
-    constructor() {
-        this.context = new AudioContext()
-        this.oscillatorNode = this.context.createOscillator()
-        this.configOscillator()
+    constructor(context: AudioContext, oscillator: any) {
+        this.context = context
         this.gainNode = this.context.createGain()
-        this.oscillatorNode.connect(this.gainNode)
+        const oscillatorNode = oscillator.getNode()
+        oscillatorNode.connect(this.gainNode)
         this.gainNode.connect(this.context.destination)
-    }
-
-    configOscillator() {
-        this.oscillatorNode = this.context.createOscillator()
-        this.oscillatorNode.type = "sine"
-        this.oscillatorNode.start()
-        const frequency = {
-            value: LOW_FREQUENCY
-        }
-        const timeline = gsap.timeline({ repeat: -1, yoyo: true })
-        const up = gsap.to(frequency, {
-            value: HIGH_FREQUENCY,
-            duration: PERIOD / 2,
-            ease: 'power1.inOut',
-            onUpdate: () => {
-                this.setFrequency(frequency.value)
-            }
-        })
-        timeline.add(up)
-    }
-
-    setFrequency(frequencyInHertz: number) {
-        this.oscillatorNode.frequency.setValueAtTime(frequencyInHertz, this.context.currentTime); // value in hertz
     }
 
     start() {
