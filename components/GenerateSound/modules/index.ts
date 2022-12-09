@@ -1,6 +1,6 @@
 import Audio from './Audio'
 import Oscillator from './Audio/oscillator'
-import Gain from './Audio/gain'
+import MainGain from './Audio/mainGain'
 
 export default class SingletonManager {
     private static instance: SingletonManager;
@@ -8,9 +8,9 @@ export default class SingletonManager {
 
     private constructor() {
         const context = new AudioContext()
-        const gain = new Gain(context)
+        const mainGain = new MainGain(context)
         const oscillator = new Oscillator(context)
-        this.audio = new Audio(context, gain, oscillator)
+        this.audio = new Audio(context, mainGain, oscillator)
     }
 
     public static getInstance(): SingletonManager {

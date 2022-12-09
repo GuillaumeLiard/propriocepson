@@ -7,25 +7,25 @@ import gsap from 'gsap'
 // https://greensock.com/docs/v3/Eases
 
 export default class Audio {
-    gain: any
+    mainGain: any
     context: AudioContext
 
-    constructor(context: AudioContext, gain: any, oscillator: any) {
+    constructor(context: AudioContext, mainGain: any, oscillator: any) {
         this.context = context
-        this.gain = gain
+        this.mainGain = mainGain
 
-        const gainNode = gain.getNode()
+        const mainGainNode = mainGain.getNode()
         const oscillatorNode = oscillator.getNode()
 
-        oscillatorNode.connect(gainNode)
-        gainNode.connect(this.context.destination)
+        oscillatorNode.connect(mainGainNode)
+        mainGainNode.connect(this.context.destination)
     }
 
     start() {
-        this.gain.setVolumeToMax()
+        this.mainGain.setVolumeToMax()
     }
 
     stop() {
-        this.gain.setVolumeToZero()
+        this.mainGain.setVolumeToZero()
     }
 }
