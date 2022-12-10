@@ -1,5 +1,3 @@
-const HIGH_VOLUME = 0.2
-const ZERO_VOLUME = 0
 const LOW_FREQUENCY = 220
 const HIGH_FREQUENCY = 440
 const PERIOD = 10

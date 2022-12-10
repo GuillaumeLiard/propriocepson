@@ -1,11 +1,3 @@
-
-const LOW_FREQUENCY = 220
-const HIGH_FREQUENCY = 440
-const PERIOD = 10
-
-import gsap from 'gsap'
-// https://greensock.com/docs/v3/Eases
-
 export default class Audio {
     mainGain: any
     context: AudioContext
