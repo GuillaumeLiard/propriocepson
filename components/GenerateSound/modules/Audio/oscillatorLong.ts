@@ -1,6 +1,9 @@
-const LOW_FREQUENCY = 220
-const HIGH_FREQUENCY = 440
-const PERIOD = 5
+const AUDIBLE_FREQUENCY = 440
+const AUDIBLE_DURATION = 2
+
+const NOT_AUDIBLE_FREQUENCY = 55
+const NOT_AUDIBLE_DURATION = (2 * 60) - AUDIBLE_DURATION
+
 
 import gsap from 'gsap'
 // https://greensock.com/docs/v3/Eases
@@ -24,18 +27,31 @@ export default class OscillatorLong {
         this.oscillatorNode.type = "sine"
         this.oscillatorNode.start()
         const frequency = {
-            value: LOW_FREQUENCY
+            value: NOT_AUDIBLE_FREQUENCY
         }
-        const timeline = gsap.timeline({ repeat: -1, yoyo: true })
-        const up = gsap.to(frequency, {
-            value: HIGH_FREQUENCY,
-            duration: PERIOD / 2,
+        const timeline = gsap.timeline({ repeat: -1 })
+        const audible = gsap.fromTo(frequency, {
+            value: AUDIBLE_FREQUENCY,
+        }, {
+            value: AUDIBLE_FREQUENCY,
+            duration: AUDIBLE_DURATION,
             ease: 'power1.inOut',
             onUpdate: () => {
                 this.setFrequency(frequency.value)
             }
         })
-        timeline.add(up)
+        const notAudible = gsap.fromTo(frequency, {
+            value: NOT_AUDIBLE_FREQUENCY,
+        }, {
+            value: NOT_AUDIBLE_FREQUENCY,
+            duration: NOT_AUDIBLE_DURATION,
+            ease: 'power1.inOut',
+            onUpdate: () => {
+                this.setFrequency(frequency.value)
+            }
+        })
+        timeline.add(audible)
+        timeline.add(notAudible)
     }
 
     setFrequency(frequencyInHertz: number) {
