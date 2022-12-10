@@ -9,8 +9,10 @@ export default class SingletonManager {
     private constructor() {
         const context = new AudioContext()
         const mainGain = new MainGain(context)
-        const oscillator = new Oscillator(context)
-        this.audio = new Audio(context, mainGain, oscillator)
+        const nodes: any[] = [
+            new Oscillator(context)
+        ]
+        this.audio = new Audio(context, mainGain, nodes)
     }
 
     public static getInstance(): SingletonManager {

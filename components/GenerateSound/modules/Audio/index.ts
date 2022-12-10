@@ -10,15 +10,25 @@ export default class Audio {
     mainGain: any
     context: AudioContext
 
-    constructor(context: AudioContext, mainGain: any, oscillator: any) {
+    constructor(context: AudioContext, mainGain: any, nodes: any[]) {
         this.context = context
         this.mainGain = mainGain
 
         const mainGainNode = mainGain.getNode()
-        const oscillatorNode = oscillator.getNode()
+        const nodesNode = nodes.map(node => node.getNode())
 
-        oscillatorNode.connect(mainGainNode)
-        mainGainNode.connect(this.context.destination)
+        const connectables = [
+            ...nodesNode,
+            mainGainNode,
+            this.context.destination
+        ]
+
+        for (let i = 0; i < connectables.length - 1; i++) {
+            const currentConnectable = connectables[i]
+            const nextConnectable = connectables[i + 1]
+            console.log(`connecting ${currentConnectable} to ${nextConnectable}`)
+            currentConnectable.connect(nextConnectable)
+        }
     }
 
     start() {
