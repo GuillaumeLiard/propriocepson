@@ -1,5 +1,5 @@
 import { start, stop } from './controller'
-const VERSION = 4
+const VERSION = 5
 export default function GenerateSound() {
 
     return (
@@ -11,8 +11,13 @@ export default function GenerateSound() {
                         <p>version : {VERSION}</p>
                         <div className="flex flex-wrap justify-start flex-grow mt-8 text-left md:mt-0">
                             <div className="w-full space-y-4 md:w-1/2">
-                                <button onClick={start}>
+                                <button onClick={() => start()}>
                                     start
+                                </button>
+                            </div>
+                            <div className="w-full space-y-4 md:w-1/2">
+                                <button onClick={() => start(2)}>
+                                    start 2x
                                 </button>
                             </div>
                             <div className="w-full space-y-4 md:w-1/2">

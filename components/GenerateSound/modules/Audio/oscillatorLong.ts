@@ -11,8 +11,10 @@ import gsap from 'gsap'
 export default class OscillatorLong {
     oscillatorNode: OscillatorNode
     context: AudioContext
+    speed: number
 
-    constructor(context: AudioContext) {
+    constructor(context: AudioContext, speed: number) {
+        this.speed = speed
         this.context = context
         this.oscillatorNode = context.createOscillator()
         this.configOscillator()
@@ -23,6 +25,7 @@ export default class OscillatorLong {
     }
 
     configOscillator() {
+        const { speed } = this
         this.oscillatorNode = this.context.createOscillator()
         this.oscillatorNode.type = "sine"
         this.oscillatorNode.start()
@@ -34,7 +37,7 @@ export default class OscillatorLong {
             value: AUDIBLE_FREQUENCY,
         }, {
             value: AUDIBLE_FREQUENCY,
-            duration: AUDIBLE_DURATION,
+            duration: AUDIBLE_DURATION / speed,
             ease: 'power1.inOut',
             onUpdate: () => {
                 this.setFrequency(frequency.value)
@@ -44,7 +47,7 @@ export default class OscillatorLong {
             value: NOT_AUDIBLE_FREQUENCY,
         }, {
             value: NOT_AUDIBLE_FREQUENCY,
-            duration: NOT_AUDIBLE_DURATION,
+            duration: NOT_AUDIBLE_DURATION / speed,
             ease: 'power1.inOut',
             onUpdate: () => {
                 this.setFrequency(frequency.value)
