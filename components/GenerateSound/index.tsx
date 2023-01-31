@@ -1,5 +1,5 @@
 import { start, stop } from './controller'
-const VERSION = 5
+const VERSION = 6
 export default function GenerateSound() {
 
     return (
