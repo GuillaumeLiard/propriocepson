@@ -10,15 +10,14 @@ export default class SingletonManager {
 
     private constructor(speedLong: number) {
         this.speedLong = speedLong
-        const context = new AudioContext()
-        const mainGain = new MainGain(context)
+        const mainGain = new MainGain()
         const nodesPiste1: any[] = [
-            new Oscillator(context)
+            new Oscillator()
         ]
         const nodesPiste2: any[] = [
-            new OscillatorLong(context, speedLong)
+            new OscillatorLong(speedLong)
         ]
-        this.audio = new Audio(context, mainGain, nodesPiste1, nodesPiste2)
+        this.audio = new Audio(mainGain, nodesPiste1, nodesPiste2)
     }
 
     public static getInstance(speedLong: number): SingletonManager {

@@ -4,8 +4,8 @@ const ZERO_VOLUME = 0
 const MAX_VOLUME = 0.2
 
 export default class MainGain extends Gain {
-    constructor(context: AudioContext) {
-        super(context)
+    constructor() {
+        super()
     }
 
     setVolumeToMax() {

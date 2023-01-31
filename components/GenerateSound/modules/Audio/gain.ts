@@ -1,9 +1,11 @@
+import AudioContextSingleton from './audioContextSingleton'
+
 export default class Gain {
     context: AudioContext
     gainNode: GainNode
 
-    constructor(context: AudioContext) {
-        this.context = context
+    constructor() {
+        this.context = AudioContextSingleton.getInstance()
         this.gainNode = this.context.createGain()
     }
 

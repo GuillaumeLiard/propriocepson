@@ -1,3 +1,5 @@
+import AudioContextSingleton from './audioContextSingleton'
+
 const LOW_FREQUENCY = 220
 const HIGH_FREQUENCY = 440
 const PERIOD = 10
@@ -9,9 +11,9 @@ export default class Oscillator {
     oscillatorNode: OscillatorNode
     context: AudioContext
 
-    constructor(context: AudioContext) {
-        this.context = context
-        this.oscillatorNode = context.createOscillator()
+    constructor() {
+        this.context = AudioContextSingleton.getInstance()
+        this.oscillatorNode = this.context.createOscillator()
         this.configOscillator()
     }
 

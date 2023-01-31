@@ -1,3 +1,6 @@
+import AudioContextSingleton from './audioContextSingleton'
+
+
 const AUDIBLE_FREQUENCY = 440
 const AUDIBLE_DURATION = 2
 
@@ -13,10 +16,10 @@ export default class OscillatorLong {
     context: AudioContext
     speed: number
 
-    constructor(context: AudioContext, speed: number) {
+    constructor(speed: number) {
         this.speed = speed
-        this.context = context
-        this.oscillatorNode = context.createOscillator()
+        this.context = AudioContextSingleton.getInstance()
+        this.oscillatorNode = this.context.createOscillator()
         this.configOscillator()
     }
 

@@ -1,3 +1,5 @@
+import AudioContextSingleton from './audioContextSingleton'
+
 function connecting(nodesPiste: any[], mainGainNode: any) {
     const nodesPiste1Node = nodesPiste.map(node => node.getNode())
     const connectables = [
@@ -16,8 +18,9 @@ export default class Audio {
     mainGain: any
     context: AudioContext
 
-    constructor(context: AudioContext, mainGain: any, nodesPiste1: any[], nodesPiste2: any[]) {
-        this.context = context
+    constructor(mainGain: any, nodesPiste1: any[], nodesPiste2: any[]) {
+        this.context = AudioContextSingleton.getInstance()
+
         this.mainGain = mainGain
 
         const mainGainNode = mainGain.getNode()
