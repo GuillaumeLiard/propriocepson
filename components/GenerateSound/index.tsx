@@ -21,6 +21,16 @@ export default function GenerateSound() {
                                 </button>
                             </div>
                             <div className="w-full space-y-4 md:w-1/2">
+                                <button onClick={() => start(3)}>
+                                    start 3x
+                                </button>
+                            </div>
+                            <div className="w-full space-y-4 md:w-1/2">
+                                <button onClick={() => start(4)}>
+                                    start 4x
+                                </button>
+                            </div>
+                            <div className="w-full space-y-4 md:w-1/2">
                                 <button onClick={stop}>
                                     stop
                                 </button>
