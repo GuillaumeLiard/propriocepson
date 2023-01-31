@@ -1,7 +1,21 @@
 import AudioContextSingleton from '.'
 
+const MockAudioContext = jest.fn(() => {
+    return {
+        // https://javascript-haskell-purescript-mars.hashnode.dev/mocking-the-web-audio-api-in-jest
+        // createAnalyser: mockcreateAnalyser,
+        // createMediaElementSource: mockcreateMediaElementSource,
+        // createOscillator: mockcreateOscillator,
+        // createChannelSplitter: mockcreateChannelSplitter,
+    }
+});
 describe('audioContextSingleton', () => {
-    it('works', () => {
-        expect(true).toEqual(true)
+    beforeEach(() => {
+        (global as any).AudioContext = MockAudioContext;
+    });
+    it('returns the same AudioContext instance when called twice', () => {
+        const firstInstance = AudioContextSingleton.getInstance()
+        const secondInstance = AudioContextSingleton.getInstance()
+        expect(firstInstance === secondInstance).toEqual(true)
     })
 })
