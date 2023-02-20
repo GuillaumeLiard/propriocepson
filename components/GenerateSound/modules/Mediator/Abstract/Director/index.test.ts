@@ -2,6 +2,7 @@ import Director from '.'
 
 export class DummyDirector extends Director {
     createWidgets() { }
+    widgetChanged() { }
 }
 let instance: DummyDirector
 

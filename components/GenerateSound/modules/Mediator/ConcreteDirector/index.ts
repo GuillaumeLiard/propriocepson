@@ -7,4 +7,8 @@ export default class ConcreteDirector extends AbstractDirector {
     createWidgets(): void {
 
     }
+
+    widgetChanged(): void {
+        console.log('widgetChanged')
+    }
 }

@@ -1,11 +1,16 @@
 import AudioContextSingleton from '.'
 
-const MockAudioContext = jest.fn(() => {
+const mockcreateOscillator = jest.fn().mockImplementation(() => ({
+    type: jest.fn(),
+    start: jest.fn(),
+}))
+
+export const MockAudioContext = jest.fn(() => {
     return {
         // https://javascript-haskell-purescript-mars.hashnode.dev/mocking-the-web-audio-api-in-jest
         // createAnalyser: mockcreateAnalyser,
         // createMediaElementSource: mockcreateMediaElementSource,
-        // createOscillator: mockcreateOscillator,
+        createOscillator: mockcreateOscillator,
         // createChannelSplitter: mockcreateChannelSplitter,
     }
 });
