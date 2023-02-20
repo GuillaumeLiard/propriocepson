@@ -1,6 +1,8 @@
 import Director from '.'
 
-export class DummyDirector extends Director { }
+export class DummyDirector extends Director {
+    createWidgets() { }
+}
 let instance: DummyDirector
 
 

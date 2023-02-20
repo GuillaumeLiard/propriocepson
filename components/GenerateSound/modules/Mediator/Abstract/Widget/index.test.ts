@@ -2,7 +2,9 @@ import { DummyDirector } from '../Director/index.test'
 import Widget from '.'
 
 
-class DummyWidget extends Widget { }
+class DummyWidget extends Widget {
+    changed() { }
+}
 let instance: DummyWidget
 let directorInstance: DummyDirector
 

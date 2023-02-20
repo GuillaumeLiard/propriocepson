@@ -6,7 +6,5 @@ export default abstract class Widget {
         this.director = director
     }
 
-    changed(): void {
-
-    }
+    abstract changed(): void
 }
