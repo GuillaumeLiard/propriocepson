@@ -15,7 +15,7 @@ export default class SingletonManager {
             new Oscillator()
         ]
         const nodesPiste2: any[] = [
-            new OscillatorLong(speedLong)
+            // new OscillatorLong(speedLong)
         ]
         this.audio = new Audio(mainGain, nodesPiste1, nodesPiste2)
     }

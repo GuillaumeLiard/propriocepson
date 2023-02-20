@@ -2,7 +2,7 @@ import AudioContextSingleton from './audioContextSingleton'
 
 const LOW_FREQUENCY = 220
 const HIGH_FREQUENCY = 440
-const PERIOD = 10
+const PERIOD = 12
 
 import gsap from 'gsap'
 // https://greensock.com/docs/v3/Eases
