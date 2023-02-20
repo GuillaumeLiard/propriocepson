@@ -3,7 +3,7 @@ import gsap from 'gsap'
 import ConcreteDirector from '../ConcreteDirector'
 
 import { MockAudioContext } from '../../Audio/audioContextSingleton/index.test'
-const concreteDirector = new ConcreteDirector()
+
 jest.mock('gsap', () => ({
     timeline: () => ({
         add: jest.fn(),
@@ -18,9 +18,10 @@ describe('Mediator Oscillator Widget', () => {
     });
     describe('start()', () => {
         it('calls gsap.to function', () => {
+            const concreteDirector = new ConcreteDirector()
             const oscillatorWidget = new OscillatorWidget(concreteDirector)
             oscillatorWidget.start()
-            expect(gsap.to).toHaveBeenCalledTimes(1)
+            expect(gsap.to).toHaveBeenCalledTimes(2)
         })
     })
 })

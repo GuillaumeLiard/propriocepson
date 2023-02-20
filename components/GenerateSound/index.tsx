@@ -9,22 +9,30 @@ export default function GenerateSound() {
                 <h2>GenerateSound</h2>
                 <p>version : {VERSION}</p>
             </div>
-            <div className={styles.inputs}>
-                <button className={styles.button} onClick={() => start()}>
-                    start
-                </button>
-                <button className={styles.button} onClick={() => start(2)}>
-                    start 2x
-                </button>
-                <button className={styles.button} onClick={() => start(3)}>
-                    start 3x
-                </button>
-                <button className={styles.button} onClick={() => start(4)}>
-                    start 4x
-                </button>
-                <button className={styles.button} onClick={stop}>
-                    stop
-                </button>
+            <div className={styles.container}>
+                <div className={styles.inputs}>
+                    <button className={styles.button} onClick={() => start()}>
+                        start
+                    </button>
+                    <button className={styles.button} onClick={() => start(2)}>
+                        start 2x
+                    </button>
+                    <button className={styles.button} onClick={() => start(3)}>
+                        start 3x
+                    </button>
+                    <button className={styles.button} onClick={() => start(4)}>
+                        start 4x
+                    </button>
+                    <button className={styles.button} onClick={stop}>
+                        stop
+                    </button>
+                </div><div className={styles.inputs}>
+                    <button className={styles.button} onClick={() => start()}>
+                        mediator start 1 wave (5s)
+                    </button>
+
+                </div>
+
             </div>
         </div>
     )

@@ -1,11 +1,16 @@
 import AbstractDirector from '../Abstract/Director'
+import OscillatorWidget from '../OscillatorWidget'
 
 export default class ConcreteDirector extends AbstractDirector {
-    // constructor() {
-    //     console.log('abc')
-    // }
-    createWidgets(): void {
+    oscillatorWidget: OscillatorWidget
 
+    constructor() {
+        super()
+        this.oscillatorWidget = new OscillatorWidget(this)
+        this.createWidgets()
+    }
+    createWidgets(): void {
+        this.oscillatorWidget.start()
     }
 
     widgetChanged(): void {
