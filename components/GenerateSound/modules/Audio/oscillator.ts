@@ -2,7 +2,6 @@ import AudioContextSingleton from './audioContextSingleton'
 
 const LOW_FREQUENCY = 220
 const HIGH_FREQUENCY = 440
-const PERIOD = 12
 
 import gsap from 'gsap'
 // https://greensock.com/docs/v3/Eases
@@ -10,8 +9,10 @@ import gsap from 'gsap'
 export default class Oscillator {
     oscillatorNode: OscillatorNode
     context: AudioContext
+    halfWaveDuration: number
 
-    constructor() {
+    constructor(halfWaveDuration: number) {
+        this.halfWaveDuration = halfWaveDuration
         this.context = AudioContextSingleton.getInstance()
         this.oscillatorNode = this.context.createOscillator()
         this.configOscillator()
@@ -22,6 +23,7 @@ export default class Oscillator {
     }
 
     configOscillator() {
+        const { halfWaveDuration } = this
         this.oscillatorNode = this.context.createOscillator()
         this.oscillatorNode.type = "sine"
         this.oscillatorNode.start()
@@ -31,7 +33,7 @@ export default class Oscillator {
         const timeline = gsap.timeline({ repeat: -1, yoyo: true })
         const up = gsap.to(frequency, {
             value: HIGH_FREQUENCY,
-            duration: PERIOD / 2,
+            duration: halfWaveDuration,
             ease: 'power1.inOut',
             onUpdate: () => {
                 this.setFrequency(frequency.value)

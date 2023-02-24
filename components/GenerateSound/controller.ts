@@ -1,7 +1,7 @@
 import SingletonManager from './modules'
 
-export const start = (speed = 1) => {
-    const manager = SingletonManager.getInstance(speed)
+export const start = (halfWaveDuration: number) => {
+    const manager = SingletonManager.getInstance(halfWaveDuration)
     manager.start()
 }
 export const stop = () => {

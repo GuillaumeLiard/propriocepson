@@ -6,13 +6,13 @@ import MainGain from './Audio/mainGain'
 export default class SingletonManager {
     private static instance: SingletonManager;
     private audio: Audio;
-    private speedLong: number;
+    private halfWaveDuration: number;
 
-    private constructor(speedLong: number) {
-        this.speedLong = speedLong
+    private constructor(halfWaveDuration: number) {
+        this.halfWaveDuration = halfWaveDuration
         const mainGain = new MainGain()
         const nodesPiste1: any[] = [
-            new Oscillator()
+            new Oscillator(halfWaveDuration)
         ]
         const nodesPiste2: any[] = [
             // new OscillatorLong(speedLong)
@@ -20,9 +20,9 @@ export default class SingletonManager {
         this.audio = new Audio(mainGain, nodesPiste1, nodesPiste2)
     }
 
-    public static getInstance(speedLong: number): SingletonManager {
+    public static getInstance(halfWaveDuration: number): SingletonManager {
         if (!SingletonManager.instance) {
-            SingletonManager.instance = new SingletonManager(speedLong);
+            SingletonManager.instance = new SingletonManager(halfWaveDuration);
         }
         return SingletonManager.instance;
     }
