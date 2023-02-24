@@ -1,6 +1,6 @@
 import OscillatorWidget from '.'
 import gsap from 'gsap'
-import ConcreteDirector from '../ConcreteDirector'
+import ConcreteDirector from '../Director/Concrete'
 
 import { MockAudioContext } from '../../Audio/audioContextSingleton/index.test'
 

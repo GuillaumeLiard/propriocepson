@@ -1,5 +1,5 @@
 import ConcreteDirector from '.'
-import { MockAudioContext } from '../../Audio/audioContextSingleton/index.test'
+import { MockAudioContext } from '../../../Audio/audioContextSingleton/index.test'
 import gsap from 'gsap'
 jest.mock('gsap', () => ({
     timeline: () => ({

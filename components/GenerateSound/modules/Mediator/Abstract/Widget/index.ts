@@ -1,4 +1,4 @@
-import Director from '../Director'
+import Director from '../../Director'
 
 export default abstract class Widget {
     director: Director

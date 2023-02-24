@@ -1,4 +1,4 @@
-import AbstractWidget from '../Widget'
+import AbstractWidget from '../Abstract/Widget'
 
 export default abstract class Director {
     abstract createWidgets(): void

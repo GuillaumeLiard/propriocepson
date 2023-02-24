@@ -1,4 +1,4 @@
-import { DummyDirector } from '../Director/index.test'
+import { DummyDirector } from '../../Director/index.test'
 import Widget from '.'
 
 
