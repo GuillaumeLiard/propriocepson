@@ -1,6 +1,6 @@
 import { start, stop } from './controller'
 import styles from './index.module.scss'
-const VERSION = 7
+const VERSION = 8
 export default function GenerateSound() {
 
     return (
