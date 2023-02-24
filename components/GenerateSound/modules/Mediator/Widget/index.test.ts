@@ -1,19 +1,19 @@
-import { DirectorDummy } from '../Director/index.test'
+import { DirectorConcrete } from '../Director/index.test'
 import Widget from '.'
 
 
-class WidgetDummy extends Widget {
+class WidgetConcrete extends Widget {
     changed() { }
 }
-let widgetDummy: WidgetDummy
-let directorDummy: DirectorDummy
+let widgetConcrete: WidgetConcrete
+let directorConcrete: DirectorConcrete
 
 describe('Mediator Widget (Abstract)', () => {
     beforeEach(() => {
-        directorDummy = new DirectorDummy()
-        widgetDummy = new WidgetDummy(directorDummy)
+        directorConcrete = new DirectorConcrete()
+        widgetConcrete = new WidgetConcrete(directorConcrete)
     })
     it('has a function createWidgets', () => {
-        expect(typeof widgetDummy.changed).toEqual('function')
+        expect(typeof widgetConcrete.changed).toEqual('function')
     })
 })

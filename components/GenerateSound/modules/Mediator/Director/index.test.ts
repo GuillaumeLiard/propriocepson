@@ -1,17 +1,17 @@
 import Director from '.'
 
-export class DirectorDummy extends Director {
+export class DirectorConcrete extends Director {
     createWidgets() { }
     widgetChanged() { }
 }
-let directorDummy: DirectorDummy
+let directorConcrete: DirectorConcrete
 
 
 describe('Mediator Director (Abstract)', () => {
     beforeEach(() => {
-        directorDummy = new DirectorDummy()
+        directorConcrete = new DirectorConcrete()
     })
     it('has a function createWidgets', () => {
-        expect(typeof directorDummy.createWidgets).toEqual('function')
+        expect(typeof directorConcrete.createWidgets).toEqual('function')
     })
 })
