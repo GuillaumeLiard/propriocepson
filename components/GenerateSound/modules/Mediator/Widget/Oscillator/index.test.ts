@@ -11,15 +11,15 @@ jest.mock('gsap', () => ({
     }),
     to: jest.fn(),
 }))
-
+let widgetOscillator: WidgetOscillator
 describe('Mediator Oscillator Widget', () => {
     beforeEach(() => {
         (global as any).AudioContext = MockAudioContext;
+        const directorConcrete = new DirectorConcrete()
+        widgetOscillator = new WidgetOscillator(directorConcrete)
     });
     describe('start()', () => {
         it('calls gsap.to function', () => {
-            const directorConcrete = new DirectorConcrete()
-            const widgetOscillator = new WidgetOscillator(directorConcrete)
             widgetOscillator.start()
             expect(gsap.to).toHaveBeenCalledTimes(1)
         })
