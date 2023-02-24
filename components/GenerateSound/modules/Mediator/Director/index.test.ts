@@ -4,14 +4,14 @@ export class DirectorDummy extends Director {
     createWidgets() { }
     widgetChanged() { }
 }
-let instance: DirectorDummy
+let directorDummy: DirectorDummy
 
 
 describe('Mediator Director (Abstract)', () => {
     beforeEach(() => {
-        instance = new DirectorDummy()
+        directorDummy = new DirectorDummy()
     })
     it('has a function createWidgets', () => {
-        expect(typeof instance.createWidgets).toEqual('function')
+        expect(typeof directorDummy.createWidgets).toEqual('function')
     })
 })

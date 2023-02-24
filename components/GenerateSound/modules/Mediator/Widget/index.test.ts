@@ -5,15 +5,15 @@ import Widget from '.'
 class DummyWidget extends Widget {
     changed() { }
 }
-let instance: DummyWidget
-let directorInstance: DirectorDummy
+let widgetDummy: DummyWidget
+let directorDummy: DirectorDummy
 
 describe('Mediator Widget (Abstract)', () => {
     beforeEach(() => {
-        directorInstance = new DirectorDummy()
-        instance = new DummyWidget(directorInstance)
+        directorDummy = new DirectorDummy()
+        widgetDummy = new DummyWidget(directorDummy)
     })
     it('has a function createWidgets', () => {
-        expect(typeof instance.changed).toEqual('function')
+        expect(typeof widgetDummy.changed).toEqual('function')
     })
 })
