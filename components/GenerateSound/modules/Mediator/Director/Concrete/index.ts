@@ -1,5 +1,5 @@
 import AbstractDirector from '..'
-import OscillatorWidget from '../../Widgets/Oscillator'
+import OscillatorWidget from '../../Widget/Oscillator'
 
 export default class ConcreteDirector extends AbstractDirector {
     oscillatorWidget: OscillatorWidget
