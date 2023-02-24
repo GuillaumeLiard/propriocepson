@@ -8,7 +8,7 @@ class DummyWidget extends Widget {
 let instance: DummyWidget
 let directorInstance: DummyDirector
 
-describe('Mediator Abstrat Widget', () => {
+describe('Mediator Widget (Abstract)', () => {
     beforeEach(() => {
         directorInstance = new DummyDirector()
         instance = new DummyWidget(directorInstance)

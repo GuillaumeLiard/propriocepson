@@ -7,7 +7,7 @@ export class DummyDirector extends Director {
 let instance: DummyDirector
 
 
-describe('Mediator Abstrat Director', () => {
+describe('Mediator Director (Abstract)', () => {
     beforeEach(() => {
         instance = new DummyDirector()
     })
