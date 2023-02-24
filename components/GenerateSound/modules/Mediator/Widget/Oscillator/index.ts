@@ -1,5 +1,5 @@
-import AbstractWidget from '..'
-import AbstractDirector from '../../Director'
+import Widget from '..'
+import Director from '../../Director'
 import AudioContextSingleton from '../../../Audio/audioContextSingleton'
 
 const LOW_FREQUENCY = 220
@@ -7,11 +7,11 @@ const HIGH_FREQUENCY = 440
 const PERIOD = 10
 import gsap from 'gsap'
 
-export default class OscillatorWidget extends AbstractWidget {
+export default class OscillatorWidget extends Widget {
     oscillatorNode: OscillatorNode
     context: AudioContext
     timeline: any
-    constructor(director: AbstractDirector) {
+    constructor(director: Director) {
         super(director)
         this.context = AudioContextSingleton.getInstance()
         this.oscillatorNode = this.context.createOscillator()

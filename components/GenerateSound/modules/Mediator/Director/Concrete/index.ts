@@ -1,7 +1,7 @@
-import AbstractDirector from '..'
+import Director from '..'
 import OscillatorWidget from '../../Widget/Oscillator'
 
-export default class ConcreteDirector extends AbstractDirector {
+export default class ConcreteDirector extends Director {
     oscillatorWidget: OscillatorWidget
 
     constructor() {
