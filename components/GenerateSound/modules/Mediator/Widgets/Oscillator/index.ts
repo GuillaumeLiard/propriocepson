@@ -1,6 +1,6 @@
-import AbstractWidget from '../Abstract/Widget'
-import AbstractDirector from '../Director'
-import AudioContextSingleton from './../../Audio/audioContextSingleton'
+import AbstractWidget from '..'
+import AbstractDirector from '../../Director'
+import AudioContextSingleton from '../../../Audio/audioContextSingleton'
 
 const LOW_FREQUENCY = 220
 const HIGH_FREQUENCY = 440

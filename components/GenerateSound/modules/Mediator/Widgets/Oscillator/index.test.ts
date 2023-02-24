@@ -1,8 +1,8 @@
 import OscillatorWidget from '.'
 import gsap from 'gsap'
-import ConcreteDirector from '../Director/Concrete'
+import ConcreteDirector from '../../Director/Concrete'
 
-import { MockAudioContext } from '../../Audio/audioContextSingleton/index.test'
+import { MockAudioContext } from '../../../Audio/audioContextSingleton/index.test'
 
 jest.mock('gsap', () => ({
     timeline: () => ({
