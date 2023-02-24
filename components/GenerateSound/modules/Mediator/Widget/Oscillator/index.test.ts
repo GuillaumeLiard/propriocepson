@@ -1,6 +1,6 @@
 import WidgetOscillator from '.'
 import gsap from 'gsap'
-import DirectorMain from '../../Director/Main'
+import { DirectorConcrete } from '../../Director/index.test'
 
 import { MockAudioContext } from '../../../Audio/audioContextSingleton/index.test'
 
@@ -18,10 +18,10 @@ describe('Mediator Oscillator Widget', () => {
     });
     describe('start()', () => {
         it('calls gsap.to function', () => {
-            const directorMain = new DirectorMain()
-            const widgetOscillator = new WidgetOscillator(directorMain)
+            const directorConcrete = new DirectorConcrete()
+            const widgetOscillator = new WidgetOscillator(directorConcrete)
             widgetOscillator.start()
-            expect(gsap.to).toHaveBeenCalledTimes(2)
+            expect(gsap.to).toHaveBeenCalledTimes(1)
         })
     })
 })
