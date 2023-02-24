@@ -1,4 +1,4 @@
-import { DummyDirector } from '../Director/index.test'
+import { DirectorDummy } from '../Director/index.test'
 import Widget from '.'
 
 
@@ -6,11 +6,11 @@ class DummyWidget extends Widget {
     changed() { }
 }
 let instance: DummyWidget
-let directorInstance: DummyDirector
+let directorInstance: DirectorDummy
 
 describe('Mediator Widget (Abstract)', () => {
     beforeEach(() => {
-        directorInstance = new DummyDirector()
+        directorInstance = new DirectorDummy()
         instance = new DummyWidget(directorInstance)
     })
     it('has a function createWidgets', () => {

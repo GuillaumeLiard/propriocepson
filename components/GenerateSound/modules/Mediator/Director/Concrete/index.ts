@@ -1,16 +1,16 @@
 import Director from '..'
-import OscillatorWidget from '../../Widget/Oscillator'
+import WidgetOscillator from '../../Widget/Oscillator'
 
 export default class ConcreteDirector extends Director {
-    oscillatorWidget: OscillatorWidget
+    widgetOscillator: WidgetOscillator
 
     constructor() {
         super()
-        this.oscillatorWidget = new OscillatorWidget(this)
+        this.widgetOscillator = new WidgetOscillator(this)
         this.createWidgets()
     }
     createWidgets(): void {
-        this.oscillatorWidget.start()
+        this.widgetOscillator.start()
     }
 
     widgetChanged(): void {

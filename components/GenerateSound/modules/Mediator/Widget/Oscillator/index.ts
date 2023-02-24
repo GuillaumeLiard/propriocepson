@@ -7,7 +7,7 @@ const HIGH_FREQUENCY = 440
 const PERIOD = 10
 import gsap from 'gsap'
 
-export default class OscillatorWidget extends Widget {
+export default class WidgetOscillator extends Widget {
     oscillatorNode: OscillatorNode
     context: AudioContext
     timeline: any

@@ -1,15 +1,15 @@
 import Director from '.'
 
-export class DummyDirector extends Director {
+export class DirectorDummy extends Director {
     createWidgets() { }
     widgetChanged() { }
 }
-let instance: DummyDirector
+let instance: DirectorDummy
 
 
 describe('Mediator Director (Abstract)', () => {
     beforeEach(() => {
-        instance = new DummyDirector()
+        instance = new DirectorDummy()
     })
     it('has a function createWidgets', () => {
         expect(typeof instance.createWidgets).toEqual('function')
