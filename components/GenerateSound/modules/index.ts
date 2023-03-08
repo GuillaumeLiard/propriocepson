@@ -3,34 +3,25 @@ import Oscillator from './Audio/oscillator'
 import OscillatorLong from './Audio/oscillatorLong'
 import MainGain from './Audio/mainGain'
 
-export default class SingletonManager {
-    private static instance: SingletonManager;
-    private audio: Audio;
-    private halfWaveDuration: number;
+export default class Manager {
+    isCreated: boolean
+    constructor() {
+        this.isCreated = false
+    }
+    create() {
+        if (this.isCreated) return
+        this._create()
+        this.isCreated = true
+    }
+    destroy() {
+        if (!this.isCreated) return
+        this._destroy()
+        this.isCreated = false
+    }
+    _create() {
 
-    private constructor(halfWaveDuration: number) {
-        this.halfWaveDuration = halfWaveDuration
-        const mainGain = new MainGain()
-        const nodesPiste1: any[] = [
-            new Oscillator(halfWaveDuration)
-        ]
-        const nodesPiste2: any[] = [
-            // new OscillatorLong(speedLong)
-        ]
-        this.audio = new Audio(mainGain, nodesPiste1, nodesPiste2)
     }
+    _destroy() {
 
-    public static getInstance(halfWaveDuration: number): SingletonManager {
-        if (!SingletonManager.instance) {
-            SingletonManager.instance = new SingletonManager(halfWaveDuration);
-        }
-        return SingletonManager.instance;
     }
-    start() {
-        this.audio.start()
-    }
-    stop() {
-        this.audio.stop()
-    }
-
 }
