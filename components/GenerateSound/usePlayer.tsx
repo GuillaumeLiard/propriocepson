@@ -1,18 +1,9 @@
-// import SingletonManager from './modules'
-import Manager, { abc } from './modules'
-import { useEffect, useRef } from 'react'
+import Manager from './modules'
+import { useEffect, useRef, useState } from 'react'
 
-// export const start = (halfWaveDuration: number) => {
-//     const manager = SingletonManager.getInstance(halfWaveDuration)
-//     manager.start()
-// }
-// export const stop = () => {
-//     const manager = SingletonManager.getInstance(1)
-//     manager.stop()
-// }
 
 export default function usePlayer() {
-    let duration = null
+    const [duration, setDuration] = useState<number | null>(null)
     const managerRef = useRef<any>({
         destroy: () => { },
         create: () => { },
@@ -23,17 +14,16 @@ export default function usePlayer() {
             managerRef.current.destroy()
         }
     }, [])
-    const {
-        destroy,
-        create,
-    } = managerRef.current
     const stop = () => {
-        destroy()
+        console.log('stop')
+        managerRef.current.destroy()
+        setDuration(null)
     }
     const play = (halfWaveDuration: number) => {
-        destroy()
-        create()
-        duration = halfWaveDuration
+        console.log('play', halfWaveDuration)
+        managerRef.current.destroy()
+        managerRef.current.create()
+        setDuration(halfWaveDuration)
     }
     return {
         play,

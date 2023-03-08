@@ -8,6 +8,7 @@ export default function GenerateSound() {
         stop,
         duration
     } = usePlayer()
+    console.log('duration', duration)
     // const play = () => console.log('play')
     // const stop = () => console.log('stop')
     return (

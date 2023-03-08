@@ -20,9 +20,10 @@ export default class Manager {
         this.isCreated = false
     }
     _create() {
-
+        console.log('create')
     }
     _destroy() {
+        console.log('destroy')
 
     }
 }
