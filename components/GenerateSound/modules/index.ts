@@ -7,6 +7,7 @@ export default class Manager {
     isCreated: boolean
     constructor() {
         this.isCreated = false
+        console.log('calls new Manager')
     }
     create() {
         if (this.isCreated) return
@@ -25,3 +26,5 @@ export default class Manager {
 
     }
 }
+
+export const abc = () => 'def'
