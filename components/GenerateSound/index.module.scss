@@ -3,19 +3,29 @@
     padding: 20px;
 }
 
-.container {
+
+.top {
+
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
+
+    .button {
+        height: 80px;
+        width: 80px;
+    }
 }
 
 .inputs {
-    display: flex;
-    flex-direction: column;
-}
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 20px;
+    column-gap: 20px;
 
-.button {
-    flex: 0 0 auto;
-    margin-top: 20px;
-    height: 100px;
-    width: 100px;
+    .button {
+        height: 100px;
+        width: 100px;
+        justify-self: center;
+        align-self: center;
+    }
 }
