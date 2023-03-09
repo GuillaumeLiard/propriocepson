@@ -2,15 +2,11 @@ import usePlayer from './usePlayer'
 import styles from './index.module.scss'
 const VERSION = 8
 export default function GenerateSound() {
-    // const { play, stop } = usePlayer()
     const {
         play,
         stop,
         duration
     } = usePlayer()
-    console.log('duration', duration)
-    // const play = () => console.log('play')
-    // const stop = () => console.log('stop')
     return (
         <div className={styles.main}>
             <div className="header">
