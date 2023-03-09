@@ -22,7 +22,7 @@ export default function usePlayer() {
     const play = (halfWaveDuration: number) => {
         console.log('play', halfWaveDuration)
         managerRef.current.destroy()
-        managerRef.current.create()
+        managerRef.current.create(halfWaveDuration)
         setDuration(halfWaveDuration)
     }
     return {
