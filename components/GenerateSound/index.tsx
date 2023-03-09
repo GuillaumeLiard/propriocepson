@@ -1,6 +1,6 @@
 import usePlayer from './usePlayer'
 import styles from './index.module.scss'
-const VERSION = 8
+const VERSION = 9
 export default function GenerateSound() {
     const {
         play,
